@@ -1,0 +1,8 @@
+Python 3.x
+Flask
+Flask-RESTful
+Flask-PyMongo
+MoviePy
+Werkzeug
+MongoDB
+Docker
