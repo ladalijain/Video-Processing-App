@@ -1,5 +1,5 @@
-# testing
-This is a submission of frontend internship assignment for Vidyo.ai SELECT Internship 2024.
+# This is a submission of backend internship assignment for Vidyo.ai SELECT Internship 2024.
+
 
 #Video Processing Web Service
 This is a Python web service for video processing using Flask, MongoDB, and MoviePy. It provides two main functionalities: audio extraction and video watermarking.
