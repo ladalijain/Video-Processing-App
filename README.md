@@ -1,10 +1,10 @@
 # testing
-# Project-V
+
 #Video Processing Web Service
 This is a Python web service for video processing using Flask, MongoDB, and MoviePy. It provides two main functionalities: audio extraction and video watermarking.
 
 
-Installation
+#Installation
 1. Clone the repository:
 git clone https://github.com/your-username/ladaliproj.git
 
@@ -17,7 +17,7 @@ pip install -r requirements.txt
 4. ImageMagick:
 (for windows install the software and add the path to magick.exe in __init__.py and for MACOS do pip install ImageMagick)
 
-How to setup:- 
+#How to setup:- 
 1. Ensure MongoDB is running on your machine.
 
 2. Run the Flask application:
@@ -25,7 +25,7 @@ python run.py
 
 3. Open your browser and go to http://localhost:5000/ to access the web application.
 
-Endpoints
+#Endpoints
 1. Audio Extraction Endpoint
 - Endpoint: /audio_extraction
 - Method: POST
@@ -42,7 +42,7 @@ Endpoints
     - position (string): Watermark position (e.g., "center", "bottom-left").
     - video (file): Video file to apply watermark to.
 
-Folder Structure
+#Folder Structure
 - app/: Contains the Flask application.
     - static/: Static files including CSS.
     - templates/: HTML templates.
@@ -53,14 +53,14 @@ Folder Structure
 - requirements.txt: List of Python libraries required for the project.
 - run.py: Script to run the Flask application.
 
-Libraries Used
+#Libraries Used
 - Flask: Web framework for Python.
 - Flask-RESTful: Extension for quickly building REST APIs with Flask.
 - Flask-PyMongo: Integration of Flask with PyMongo (MongoDB driver for Python).
 - MoviePy: Video editing library.
 - MongoDB: NoSQL database.
 
-Dockerization
+#Docker Set Up 
 To containerize the application using Docker, you can use the provided Dockerfile:
 
 docker build -t ladaliproj .
