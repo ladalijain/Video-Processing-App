@@ -16,17 +16,15 @@ video_info = VideoInfo()
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 class AudioExtraction(Resource):
     def post(self):
-        args = parser.parse_args()
-        user = args['user']
+        user = request.form.get('user')
 
-        file = request.files['video']
+        file = request.files.get('video')
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file_path = f'app/static/{filename}'
-            file.save(f'app/static/{filename}')
+            file.save(file_path)
 
             # Perform audio extraction here
             audio_output_path = f'app/static/{filename.rsplit(".", 1)[0]}.mp3'
@@ -34,7 +32,6 @@ class AudioExtraction(Resource):
             audio_clip = video_clip.audio
             audio_clip.write_audiofile(audio_output_path)
             audio_clip.close()
-
 
             video_info.insert_video_info(user, 'audio_extraction', filename)
             return {'message': 'Audio extraction successful', 'audio_file': audio_output_path}
@@ -44,18 +41,16 @@ class AudioExtraction(Resource):
 
 class VideoWatermarking(Resource):
     def post(self):
-        args = parser.parse_args()
-        user = args['user']
-        position = args['position']
+        user = request.form.get('user')
+        position = request.form.get('position')
 
-        file = request.files['video']
+        file = request.files.get('video')
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file_path = f'app/static/{filename}'
-            file.save(f'app/static/{filename}')
+            file.save(file_path)
 
             # Perform video watermarking here with the specified position
-
             watermark_text = "VideoAI"
             video_clip = VideoFileClip(file_path)
             txt_clip = TextClip(watermark_text, fontsize=70, color='white')
@@ -75,6 +70,7 @@ class VideoWatermarking(Resource):
             return {'message': 'Video watermarking successful', 'watermarked_video': watermarked_output_path}
 
         return {'error': 'Invalid file or format'}
+
 
 api.add_resource(AudioExtraction, '/audio_extraction')
 api.add_resource(VideoWatermarking, '/video_watermarking')
