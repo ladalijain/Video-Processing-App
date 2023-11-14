@@ -3,6 +3,7 @@ Flask
 Flask-RESTful
 Flask-PyMongo
 MoviePy
+ImageMagick 
 Werkzeug
 MongoDB
 Docker
