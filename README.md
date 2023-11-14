@@ -14,6 +14,9 @@ cd ladaliproj
 3. Install the required dependencies:
 pip install -r requirements.txt
 
+4. ImageMagick:
+(for windows install the software and add the path to magick.exe in __init__.py and for MACOS do pip install ImageMagick)
+
 How to setup:- 
 1. Ensure MongoDB is running on your machine.
 
